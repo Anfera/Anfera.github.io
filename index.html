@@ -6,230 +6,268 @@
   <title>Andres Ramirez-Jaime | Machine Learning & Generative Models</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --text: #0f172a;
-      --muted: #4b5563;
-      --primary: #0f6ad8;
-      --accent: #0ea5e9;
-      --shadow: 0 12px 40px rgba(15, 26, 58, 0.08);
+      --bg: #0c111a;
+      --card: rgba(255, 255, 255, 0.04);
+      --muted: #d2d7df;
+      --primary: #37c3ff;
+      --accent: #ffbf69;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f7f8fb;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: radial-gradient(1200px at 10% 5%, rgba(14, 165, 233, 0.08), transparent 45%), var(--bg);
+      background: radial-gradient(1200px at 80% 0%, rgba(55,195,255,0.22), transparent 45%),
+                  radial-gradient(900px at 10% 20%, rgba(255,191,105,0.25), transparent 40%),
+                  linear-gradient(135deg, #0c111a 0%, #0b1624 50%, #0f1b2f 100%);
       color: var(--text);
       font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-      line-height: 1.65;
+      line-height: 1.6;
       min-height: 100vh;
-      padding-bottom: 56px;
+      padding: 0 18px 64px;
     }
 
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(245, 247, 251, 0.9);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .topbar {
+      max-width: 1180px;
+      margin: 32px auto 18px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 14px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+      align-items: center;
+      gap: 18px;
     }
 
     .logo {
       font-weight: 700;
       letter-spacing: 0.6px;
-      font-size: 14px;
       text-transform: uppercase;
+      font-size: 14px;
       color: var(--muted);
     }
 
     nav {
       display: flex;
-      gap: 14px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
     nav a {
       color: var(--text);
-      padding: 8px 12px;
-      border-radius: 10px;
+      padding: 10px 14px;
       border: 1px solid transparent;
+      border-radius: 999px;
+      transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
       font-size: 14px;
-      transition: border-color 140ms ease, background 140ms ease;
     }
 
     nav a:hover {
       border-color: var(--border);
-      background: #f1f5f9;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .hero {
-      margin: 32px 0 20px;
-      padding: 30px;
-      background: var(--card);
+      max-width: 1180px;
+      margin: 14px auto 32px;
+      padding: 28px;
       border: 1px solid var(--border);
       border-radius: 18px;
-      box-shadow: var(--shadow);
+      background: var(--card);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.02) inset;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-grid {
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(480px at 70% 30%, rgba(55,195,255,0.12), transparent 60%),
+                  radial-gradient(420px at 10% 70%, rgba(255,191,105,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: center;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
     }
 
     h1 {
       margin: 0 0 12px;
-      font-size: clamp(30px, 3.3vw, 40px);
-      letter-spacing: -0.3px;
+      font-size: clamp(32px, 4vw, 44px);
+      letter-spacing: -0.4px;
     }
 
-    .subtitle {
-      font-family: 'Source Serif 4', Georgia, serif;
-      color: var(--primary);
+    .tagline {
       font-size: 18px;
-      margin: 0 0 12px;
-    }
-
-    .lede {
-      margin: 0 0 16px;
       color: var(--muted);
-      font-size: 16px;
+      margin: 0 0 18px;
+      max-width: 760px;
     }
 
     .cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 10px 0 0;
+      gap: 12px;
+      margin-top: 8px;
     }
 
-    .btn, .ghost {
+    .button, .ghost {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 15px;
+      padding: 12px 16px;
       border-radius: 12px;
       font-weight: 600;
       font-size: 15px;
       border: 1px solid transparent;
+      transition: transform 140ms ease, box-shadow 140ms ease, border-color 160ms ease, background 160ms ease;
       cursor: pointer;
-      transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
       text-decoration: none;
     }
 
-    .btn {
-      background: linear-gradient(120deg, #0f6ad8 0%, #0ea5e9 90%);
-      color: #fff;
-      box-shadow: 0 12px 30px rgba(15, 106, 216, 0.25);
+    .button {
+      background: linear-gradient(120deg, #37c3ff 0%, #2a91ff 50%, #37c3ff 100%);
+      color: #0b1320;
+      box-shadow: 0 14px 30px rgba(55,195,255,0.35);
     }
 
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 32px rgba(15, 106, 216, 0.3); }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 18px 36px rgba(55,195,255,0.4); }
 
     .ghost {
       color: var(--text);
       border-color: var(--border);
-      background: #f8fafc;
+      background: rgba(255,255,255,0.02);
     }
 
-    .ghost:hover { transform: translateY(-1px); border-color: #d6d9df; }
+    .ghost:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.16); }
 
-    .hero-photo {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #e2e8f0;
-      min-height: 240px;
+    .hero-card {
       display: grid;
-      align-items: stretch;
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.02);
-    }
-
-    .photo-badge {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      padding: 8px 12px;
-      background: rgba(15, 106, 216, 0.92);
-      color: #fff;
-      border-radius: 12px;
-      font-size: 13px;
-      box-shadow: 0 10px 25px rgba(15, 106, 216, 0.3);
-    }
-
-    section {
-      margin: 18px 0;
-      padding: 22px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 10px 24px rgba(15, 26, 58, 0.06);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
       gap: 10px;
-      margin-bottom: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: -0.2px;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      background: rgba(55,195,255,0.14);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 13px;
+      border: 1px solid rgba(55,195,255,0.3);
     }
 
-    .section-head .small {
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       color: var(--muted);
       font-size: 14px;
     }
 
-    .timeline {
+    main { max-width: 1180px; margin: 0 auto; display: grid; gap: 24px; }
+
+    section {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h2 span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,191,105,0.15);
+    }
+
+    .grid {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
     }
 
-    .item {
-      padding: 16px;
-      border: 1px solid var(--border);
+    .card {
+      padding: 14px;
       border-radius: 14px;
-      background: #fafbfc;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
     }
 
-    .item-title {
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .card .sub {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .timeline-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -238,163 +276,128 @@
       margin-bottom: 6px;
     }
 
-    .item-title h3 {
+    .timeline-title h3 {
       margin: 0;
       font-size: 16px;
-      letter-spacing: -0.15px;
     }
 
-    .pill {
+    .timeline-title .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #eef2f7;
-      color: var(--muted);
       font-size: 13px;
-    }
-
-    .muted { color: var(--muted); font-size: 14px; margin: 0 0 6px; }
-
-    ul {
-      margin: 8px 0 0;
-      padding-left: 18px;
+      border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 14px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      padding: 14px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fafbfc;
-    }
-
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      letter-spacing: -0.1px;
-    }
-
-    .card .sub { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-size: 13px;
-      color: var(--text);
-    }
+    .muted { color: var(--muted); font-size: 14px; }
 
     footer {
-      max-width: 1100px;
-      margin: 14px auto 0;
-      padding: 16px 20px;
+      max-width: 1180px;
+      margin: 10px auto 0;
+      padding: 16px 0 40px;
       color: var(--muted);
       font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
+      header { flex-direction: column; align-items: flex-start; }
+      nav { width: 100%; }
+      .hero-content { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
-      .topbar { padding: 12px 14px; }
-      nav { width: 100%; }
-      nav a { padding: 7px 10px; }
+      body { padding: 0 12px 48px; }
       section, .hero { padding: 18px; }
+      nav a { padding: 8px 12px; }
       .cta { width: 100%; }
-      .btn, .ghost { flex: 1 1 160px; justify-content: center; }
+      .button, .ghost { justify-content: center; flex: 1 1 150px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="topbar">
-      <div class="logo">Andres Ramirez-Jaime</div>
-      <nav>
-        <a href="#summary">Summary</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#publications">Publications</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+    <div class="logo">Andres Ramirez-Jaime</div>
+    <nav>
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="hero" id="summary">
-      <div class="hero-grid">
-        <div>
-          <div class="subtitle">Machine Learning for Remote Sensing & Generative Models</div>
-          <h1>Andres Ramirez-Jaime</h1>
-          <p class="lede">
-            Ph.D. candidate building diffusion, transformer, and LLM systems for satellite LiDAR, hyperspectral imagery, and on-device experiences. Experience across Apple, Vertex, and NASA collaborations; focused on reliable applied AI for remote sensing and medical imaging.
-          </p>
-          <div class="cta">
-            <a class="btn" href="mailto:af.ramirez236@gmail.com">Email Andres</a>
-            <a class="ghost" href="https://github.com/Anfera" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="ghost" href="https://www.linkedin.com/in/andres-ramirez-jaime" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="ghost" href="https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl" target="_blank" rel="noreferrer">Google Scholar</a>
-          </div>
-        </div>
-        <div class="hero-photo">
-          <img src="imgs/andres.JPG" alt="Portrait of Andres Ramirez-Jaime">
-          <div class="photo-badge">Open to Machine Learning / Applied Scientist / Research Scientist roles</div>
+  <section class="hero" id="summary">
+    <div class="hero-content">
+      <div>
+        <h1>Machine Learning & Generative Models for Sensing</h1>
+        <p class="tagline">
+          Ph.D. candidate building diffusion and transformer models for satellite LiDAR, hyperspectral imagery, and LLM-powered products. Experience across Apple, Vertex, and NASA collaborations; focused on reliable AI for remote sensing, medical imaging, and on-device experiences.
+        </p>
+        <div class="cta">
+          <a class="button" href="mailto:af.ramirez236@gmail.com">Email Andres</a>
+          <a class="ghost" href="https://github.com/Anfera" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="ghost" href="https://www.linkedin.com/in/andres-ramirez-jaime" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="ghost" href="https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl" target="_blank" rel="noreferrer">Google Scholar</a>
         </div>
       </div>
-    </section>
+      <div class="hero-card">
+        <div class="badge">Open to Machine Learning / Applied Scientist / Research Scientist roles</div>
+        <div class="meta">
+          <span>Based in Newark, DE · Global teams experience</span>
+          <span>Apple Intelligence · Vertex · NASA CASALS</span>
+        </div>
+        <div class="chips">
+          <span class="chip">Diffusion Models</span>
+          <span class="chip">Transformers</span>
+          <span class="chip">RAG / LLM Ops</span>
+          <span class="chip">Remote Sensing</span>
+          <span class="chip">Medical Imaging</span>
+          <span class="chip">Embedded Vision</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <main>
     <section id="experience">
-      <div class="section-head">
-        <h2>Experience</h2>
-        <div class="small">Impactful roles in LLMs, remote sensing, and medical imaging</div>
-      </div>
+      <h2><span></span>Experience</h2>
       <div class="timeline">
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Apple Inc. — Large Language Models & Generative AI Engineering Intern</h3>
             <div class="pill">Cupertino, CA · Summer 2024</div>
           </div>
-          <p class="muted">Built production-grade evaluation and fine-tuning for Apple Intelligence.</p>
+          <div class="muted">Built production-grade evaluation and fine-tuning for Apple Intelligence.</div>
           <ul>
-            <li>Developed a retrieval-augmented generation system that enriched metadata and boosted in-context performance for Apple Intelligence LLMs.</li>
+            <li>Developed a retrieval-augmented generation system to enrich metadata and boost in-context performance for Apple Intelligence LLMs.</li>
             <li>Curated task-focused datasets and applied LoRA adapters for efficient fine-tuning on iPhone-specific use cases.</li>
-            <li>Designed stress-test evaluation suites targeting edge cases; increased training/evaluation iteration rate from 1 to 4+ cycles per day.</li>
+            <li>Designed stress-test evaluation suites targeting edge cases; increased training/eval iteration rate from 1 to 4+ cycles per day.</li>
           </ul>
         </div>
 
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Vertex Pharmaceuticals — Computer Vision & ML Engineer</h3>
             <div class="pill">San Diego, CA · Summer 2023</div>
           </div>
-          <p class="muted">Computer vision pipelines for early drug discovery.</p>
+          <div class="muted">Computer vision pipelines for early drug discovery in pulmonary fibrosis and kidney disease.</div>
           <ul>
             <li>Built a U-Net semantic segmentation model for gigapixel histopathology, surpassing 90% accuracy to help assess compound efficacy.</li>
             <li>Automated segmentation of kidney organoids and physiological measurements with errors under 3%.</li>
           </ul>
         </div>
 
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>University of Delaware — Research & Teaching Assistant</h3>
             <div class="pill">Newark, DE · Feb 2022–Present</div>
           </div>
-          <p class="muted">NASA CASALS project: ML for LiDAR and hyperspectral data using diffusion and multimodal models.</p>
+          <div class="muted">NASA CASALS project: ML for LiDAR and hyperspectral data using diffusion and multimodal models.</div>
           <ul>
             <li>Developed algorithms that improved satellite height estimation errors to under 1 meter.</li>
             <li>Co-authored peer-reviewed papers and presented at international remote sensing venues.</li>
@@ -402,24 +405,24 @@
           </ul>
         </div>
 
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>University of Delaware — Visiting Scholar</h3>
             <div class="pill">Newark, DE · Jul–Dec 2021</div>
           </div>
-          <p class="muted">Compressed 3D satellite LiDAR processing.</p>
+          <div class="muted">Compressed 3D satellite LiDAR processing.</div>
           <ul>
             <li>Designed the HyperHeight Data Cube representation for efficient storage and processing.</li>
             <li>Implemented a 3D convolutional autoencoder to reconstruct compressed LiDAR volumes.</li>
           </ul>
         </div>
 
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>University of La Sabana — Mechanical Engineering Professor</h3>
             <div class="pill">Chia, Colombia · Jan 2018–Dec 2021</div>
           </div>
-          <p class="muted">Embedded systems, robotics, and applied ML education.</p>
+          <div class="muted">Embedded systems, robotics, and applied ML education.</div>
           <ul>
             <li>Led development of the UNISABANA Herons mechanical ventilator used in ICUs during COVID-19.</li>
             <li>Automated respiratory control and data capture in C and LabVIEW; supported regulatory approval.</li>
@@ -430,10 +433,7 @@
     </section>
 
     <section id="skills">
-      <div class="section-head">
-        <h2>Technical Skills</h2>
-        <div class="small">Languages, frameworks, and domains</div>
-      </div>
+      <h2><span></span>Technical Skills</h2>
       <div class="grid">
         <div class="card">
           <h3>Languages</h3>
@@ -482,71 +482,65 @@
     </section>
 
     <section id="publications">
-      <div class="section-head">
-        <h2>Selected Publications</h2>
-        <div class="small">IEEE TGRS, IGARSS, CISA highlights</div>
-      </div>
+      <h2><span></span>Selected Publications</h2>
       <div class="timeline">
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Super-Resolved 3D Satellite LiDAR Imaging of Earth Via Generative Diffusion Models</h3>
             <div class="pill">Submitted · 2024</div>
           </div>
-          <p class="muted">IEEE Trans. Geoscience and Remote Sensing (under review).</p>
+          <div class="muted">IEEE Trans. Geoscience and Remote Sensing (under review).</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Super-Resolution of Satellite Lidars for Forest Studies Via Generative Adversarial Networks</h3>
             <div class="pill">IGARSS 2024</div>
           </div>
-          <p class="muted">Generative models for satellite LiDAR super-resolution.</p>
+          <div class="muted">Generative models for satellite LiDAR super-resolution.</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Super-Resolution of Satellite Lidars for Forest Studies Using Diffusion Generative Models</h3>
             <div class="pill">CISA 2024</div>
           </div>
-          <p class="muted">Diffusion models for LiDAR reconstruction.</p>
+          <div class="muted">Diffusion models for LiDAR reconstruction.</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Transformer End-to-End Optimization of Compressive Lidars Using Imaging Spectroscopy Side-Information</h3>
             <div class="pill">TGRS · 2024</div>
           </div>
-          <p class="muted">Transformer-driven compressive LiDAR reconstruction.</p>
+          <div class="muted">Transformer-driven compressive LiDAR reconstruction.</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>HyperHeight LiDAR Compressive Sampling and Machine Learning Reconstruction</h3>
             <div class="pill">TGRS · 2024</div>
           </div>
-          <p class="muted">Compressed sensing and ML reconstruction for LiDAR.</p>
+          <div class="muted">Compressed sensing and ML reconstruction for LiDAR.</div>
         </div>
       </div>
     </section>
 
     <section id="education">
-      <div class="section-head">
-        <h2>Education</h2>
-        <div class="small">Academic foundations and recognition</div>
-      </div>
+      <h2><span></span>Education</h2>
       <div class="timeline">
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Ph.D. in Electrical and Computer Engineering</h3>
             <div class="pill">University of Delaware · July 2026</div>
           </div>
-          <p class="muted">GPA 3.92; George W. Laird Fellow; ECE Signal Processing Award; Doctoral Fellowship for Excellence.</p>
+          <div class="muted">GPA 3.92; George W. Laird Fellow; ECE Signal Processing Award; Doctoral Fellowship for Excellence.</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Master in Computer and Electronic Engineering</h3>
             <div class="pill">University of Los Andes · March 2016</div>
           </div>
-          <p class="muted">Graduated Cum Laude.</p>
+          <div class="muted">Graduated Cum Laude.</div>
         </div>
-        <div class="item">
-          <div class="item-title">
+        <div class="timeline-item">
+          <div class="timeline-title">
             <h3>Bachelor in Electronic Engineering</h3>
             <div class="pill">University of Los Andes · October 2013</div>
           </div>
@@ -555,10 +549,7 @@
     </section>
 
     <section id="leadership">
-      <div class="section-head">
-        <h2>Leadership & Service</h2>
-        <div class="small">Community, mentorship, and outreach</div>
-      </div>
+      <h2><span></span>Leadership & Service</h2>
       <div class="grid">
         <div class="card">
           <h3>Community</h3>
@@ -578,27 +569,24 @@
     </section>
 
     <section id="contact">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <div class="small">Let’s talk about applied ML, generative models, and remote sensing</div>
-      </div>
+      <h2><span></span>Contact</h2>
       <div class="grid">
         <div class="card">
           <h3>Get in touch</h3>
-          <p class="sub">af.ramirez236@gmail.com · +1 (646) 645-9400</p>
+          <p class="muted">Let’s talk about machine learning, generative models, or building resilient applied AI systems.</p>
           <div class="chips">
-            <a class="chip" href="mailto:af.ramirez236@gmail.com">Email</a>
+            <a class="chip" href="mailto:af.ramirez236@gmail.com">af.ramirez236@gmail.com</a>
+            <span class="chip">+1 (646) 645-9400</span>
             <a class="chip" href="https://github.com/Anfera" target="_blank" rel="noreferrer">GitHub</a>
             <a class="chip" href="https://www.linkedin.com/in/andres-ramirez-jaime" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="chip" href="https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl" target="_blank" rel="noreferrer">Scholar</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="container">
-    Built for Anfera.github.io — last updated 2024
+  <footer>
+    <span>Updated Nov/2025</span>
   </footer>
 </body>
 </html>
