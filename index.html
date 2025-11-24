@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andres Ramirez-Jaime | Machine Learning & Generative Models</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c111a;
+      --card: rgba(255, 255, 255, 0.04);
+      --muted: #d2d7df;
+      --primary: #37c3ff;
+      --accent: #ffbf69;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f7f8fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(1200px at 80% 0%, rgba(55,195,255,0.22), transparent 45%),
+                  radial-gradient(900px at 10% 20%, rgba(255,191,105,0.25), transparent 40%),
+                  linear-gradient(135deg, #0c111a 0%, #0b1624 50%, #0f1b2f 100%);
+      color: var(--text);
+      font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 0 18px 64px;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      max-width: 1180px;
+      margin: 32px auto 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text);
+      padding: 10px 14px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 14px auto 32px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.02) inset;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(480px at 70% 30%, rgba(55,195,255,0.12), transparent 60%),
+                  radial-gradient(420px at 10% 70%, rgba(255,191,105,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 4vw, 44px);
+      letter-spacing: -0.4px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 760px;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .button, .ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: transform 140ms ease, box-shadow 140ms ease, border-color 160ms ease, background 160ms ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .button {
+      background: linear-gradient(120deg, #37c3ff 0%, #2a91ff 50%, #37c3ff 100%);
+      color: #0b1320;
+      box-shadow: 0 14px 30px rgba(55,195,255,0.35);
+    }
+
+    .button:hover { transform: translateY(-1px); box-shadow: 0 18px 36px rgba(55,195,255,0.4); }
+
+    .ghost {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .ghost:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.16); }
+
+    .hero-card {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      background: rgba(55,195,255,0.14);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 13px;
+      border: 1px solid rgba(55,195,255,0.3);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    main { max-width: 1180px; margin: 0 auto; display: grid; gap: 24px; }
+
+    section {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h2 span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,191,105,0.15);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .card .sub {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .timeline-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .timeline-title .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .muted { color: var(--muted); font-size: 14px; }
+
+    footer {
+      max-width: 1180px;
+      margin: 10px auto 0;
+      padding: 16px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { width: 100%; }
+      .hero-content { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 0 12px 48px; }
+      section, .hero { padding: 18px; }
+      nav a { padding: 8px 12px; }
+      .cta { width: 100%; }
+      .button, .ghost { justify-content: center; flex: 1 1 150px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Andres Ramirez-Jaime</div>
+    <nav>
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="summary">
+    <div class="hero-content">
+      <div>
+        <h1>Machine Learning & Generative Models for Sensing</h1>
+        <p class="tagline">
+          Ph.D. candidate building diffusion and transformer models for satellite LiDAR, hyperspectral imagery, and LLM-powered products. Experience across Apple, Vertex, and NASA collaborations; focused on reliable AI for remote sensing, medical imaging, and on-device experiences.
+        </p>
+        <div class="cta">
+          <a class="button" href="mailto:af.ramirez236@gmail.com">Email Andres</a>
+          <a class="ghost" href="https://github.com/Anfera" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="ghost" href="https://www.linkedin.com/in/andres-ramirez-jaime" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="ghost" href="https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl" target="_blank" rel="noreferrer">Google Scholar</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="badge">Open to Machine Learning / Applied Scientist / Research Scientist roles</div>
+        <div class="meta">
+          <span>Based in Newark, DE · Global teams experience</span>
+          <span>Apple Intelligence · Vertex · NASA CASALS</span>
+        </div>
+        <div class="chips">
+          <span class="chip">Diffusion Models</span>
+          <span class="chip">Transformers</span>
+          <span class="chip">RAG / LLM Ops</span>
+          <span class="chip">Remote Sensing</span>
+          <span class="chip">Medical Imaging</span>
+          <span class="chip">Embedded Vision</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="experience">
+      <h2><span></span>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Apple Inc. — Large Language Models & Generative AI Engineering Intern</h3>
+            <div class="pill">Cupertino, CA · Summer 2024</div>
+          </div>
+          <div class="muted">Built production-grade evaluation and fine-tuning for Apple Intelligence.</div>
+          <ul>
+            <li>Developed a retrieval-augmented generation system to enrich metadata and boost in-context performance for Apple Intelligence LLMs.</li>
+            <li>Curated task-focused datasets and applied LoRA adapters for efficient fine-tuning on iPhone-specific use cases.</li>
+            <li>Designed stress-test evaluation suites targeting edge cases; increased training/eval iteration rate from 1 to 4+ cycles per day.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Vertex Pharmaceuticals — Computer Vision & ML Engineer</h3>
+            <div class="pill">San Diego, CA · Summer 2023</div>
+          </div>
+          <div class="muted">Computer vision pipelines for early drug discovery in pulmonary fibrosis and kidney disease.</div>
+          <ul>
+            <li>Built a U-Net semantic segmentation model for gigapixel histopathology, surpassing 90% accuracy to help assess compound efficacy.</li>
+            <li>Automated segmentation of kidney organoids and physiological measurements with errors under 3%.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>University of Delaware — Research & Teaching Assistant</h3>
+            <div class="pill">Newark, DE · Feb 2022–Present</div>
+          </div>
+          <div class="muted">NASA CASALS project: ML for LiDAR and hyperspectral data using diffusion and multimodal models.</div>
+          <ul>
+            <li>Developed algorithms that improved satellite height estimation errors to under 1 meter.</li>
+            <li>Co-authored peer-reviewed papers and presented at international remote sensing venues.</li>
+            <li>Mentored graduate students and taught Statistical Learning, Imaging & Deep Learning, and Probability/Statistics.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>University of Delaware — Visiting Scholar</h3>
+            <div class="pill">Newark, DE · Jul–Dec 2021</div>
+          </div>
+          <div class="muted">Compressed 3D satellite LiDAR processing.</div>
+          <ul>
+            <li>Designed the HyperHeight Data Cube representation for efficient storage and processing.</li>
+            <li>Implemented a 3D convolutional autoencoder to reconstruct compressed LiDAR volumes.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>University of La Sabana — Mechanical Engineering Professor</h3>
+            <div class="pill">Chia, Colombia · Jan 2018–Dec 2021</div>
+          </div>
+          <div class="muted">Embedded systems, robotics, and applied ML education.</div>
+          <ul>
+            <li>Led development of the UNISABANA Herons mechanical ventilator used in ICUs during COVID-19.</li>
+            <li>Automated respiratory control and data capture in C and LabVIEW; supported regulatory approval.</li>
+            <li>Supervised 12 undergraduate theses and coached robotics teams to RoboCup runner-up.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2><span></span>Technical Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Languages</h3>
+          <p class="sub">Python, C, MATLAB, LabVIEW</p>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">C</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">LabVIEW</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ML & Deep Learning</h3>
+          <p class="sub">Diffusion models, GANs, Transformers, LLMs, multimodal networks</p>
+          <div class="chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow</span>
+            <span class="chip">Keras</span>
+            <span class="chip">Diffusion</span>
+            <span class="chip">Transformers</span>
+            <span class="chip">LLM Ops</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Domains</h3>
+          <p class="sub">Remote sensing, LiDAR, hyperspectral, medical imaging, robotics</p>
+          <div class="chips">
+            <span class="chip">Remote Sensing</span>
+            <span class="chip">LiDAR</span>
+            <span class="chip">Hyperspectral</span>
+            <span class="chip">Medical Imaging</span>
+            <span class="chip">Robotics</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tools & Platforms</h3>
+          <p class="sub">Linux, Git, GIS, LaTeX</p>
+          <div class="chips">
+            <span class="chip">Linux</span>
+            <span class="chip">Git</span>
+            <span class="chip">GIS</span>
+            <span class="chip">LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2><span></span>Selected Publications</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Super-Resolved 3D Satellite LiDAR Imaging of Earth Via Generative Diffusion Models</h3>
+            <div class="pill">Submitted · 2024</div>
+          </div>
+          <div class="muted">IEEE Trans. Geoscience and Remote Sensing (under review).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Super-Resolution of Satellite Lidars for Forest Studies Via Generative Adversarial Networks</h3>
+            <div class="pill">IGARSS 2024</div>
+          </div>
+          <div class="muted">Generative models for satellite LiDAR super-resolution.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Super-Resolution of Satellite Lidars for Forest Studies Using Diffusion Generative Models</h3>
+            <div class="pill">CISA 2024</div>
+          </div>
+          <div class="muted">Diffusion models for LiDAR reconstruction.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Transformer End-to-End Optimization of Compressive Lidars Using Imaging Spectroscopy Side-Information</h3>
+            <div class="pill">TGRS · 2024</div>
+          </div>
+          <div class="muted">Transformer-driven compressive LiDAR reconstruction.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>HyperHeight LiDAR Compressive Sampling and Machine Learning Reconstruction</h3>
+            <div class="pill">TGRS · 2024</div>
+          </div>
+          <div class="muted">Compressed sensing and ML reconstruction for LiDAR.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2><span></span>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Ph.D. in Electrical and Computer Engineering</h3>
+            <div class="pill">University of Delaware · July 2026</div>
+          </div>
+          <div class="muted">GPA 3.92; George W. Laird Fellow; ECE Signal Processing Award; Doctoral Fellowship for Excellence.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Master in Computer and Electronic Engineering</h3>
+            <div class="pill">University of Los Andes · March 2016</div>
+          </div>
+          <div class="muted">Graduated Cum Laude.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">
+            <h3>Bachelor in Electronic Engineering</h3>
+            <div class="pill">University of Los Andes · October 2013</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <h2><span></span>Leadership & Service</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Community</h3>
+          <ul>
+            <li>Board Member, Hispanic/Latino Graduate Student Association (2021–2023).</li>
+            <li>Board Member, SACNAS (2023–2024).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Mentorship & Outreach</h3>
+          <ul>
+            <li>First Point of Contact, University of Delaware Summer Research Program (2021–2023).</li>
+            <li>Volunteer, World Youth Day 2019; Volunteer Staff, Opus Dei (2018–2021).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2><span></span>Contact</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Get in touch</h3>
+          <p class="muted">Let’s talk about machine learning, generative models, or building resilient applied AI systems.</p>
+          <div class="chips">
+            <a class="chip" href="mailto:af.ramirez236@gmail.com">af.ramirez236@gmail.com</a>
+            <span class="chip">+1 (646) 645-9400</span>
+            <a class="chip" href="https://github.com/Anfera" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/andres-ramirez-jaime" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built for Anfera.github.io — inspired by remote sensing and generative models.</span>
+    <span>Updated 2024</span>
+  </footer>
+</body>
+</html>
