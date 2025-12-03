@@ -92,29 +92,19 @@
             <div class="bg-white/80 border border-slate-200 rounded-3xl p-8 md:p-10 shadow-lg shadow-slate-200 relative overflow-hidden">
                 <div class="absolute -right-12 -top-12 w-56 h-56 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
                 <div class="absolute -left-16 bottom-0 w-64 h-64 bg-emerald-100 rounded-full blur-3xl opacity-60"></div>
-                <div class="relative z-10 grid md:grid-cols-[2fr,1fr] gap-8 items-center">
-                    <div>
-                        <p class="text-primary font-semibold mb-2">Welcome in</p>
-                        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">Photo Portfolio</h1>
-                        <p class="text-slate-600 text-lg mb-3">Welcome to my photo portfolio - a small gallery of frames that made me stop and look twice. These are some of my favorite photos I've taken over the years, from long walks, quick trips, and quiet moments in between.</p>
-                        <p class="text-slate-600 text-base mb-6">Drop any new image into a <code class="font-mono bg-slate-100 px-2 py-1 rounded">/photos</code> folder in this repo; every visit auto-shuffles the wall so the story changes each time you open it.</p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <a href="index.html" class="inline-flex items-center px-5 py-3 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-300">
-                                <i class="fas fa-arrow-left mr-2"></i> Back to main page
-                            </a>
-                            <button id="shuffleButton" class="inline-flex items-center px-5 py-3 rounded-lg border border-slate-200 text-slate-700 font-semibold bg-white hover:border-primary hover:text-primary transition shadow-sm">
-                                <i class="fas fa-random mr-2"></i> Shuffle now
-                            </button>
-                            <span class="text-sm text-slate-500">Loaded photos: <span id="photoCount" class="font-semibold text-slate-700">–</span></span>
-                        </div>
-                    </div>
-                    <div class="glass-card bg-white/70 border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <h2 class="text-lg font-semibold text-slate-900 mb-3 flex items-center"><i class="fas fa-info-circle text-primary mr-2"></i>How it works</h2>
-                        <ul class="space-y-2 text-slate-600 text-sm">
-                            <li class="flex items-start"><i class="fas fa-folder-open text-secondary mt-0.5 mr-2"></i> Create a <strong>/photos</strong> folder at the repo root.</li>
-                            <li class="flex items-start"><i class="fas fa-image text-blue-500 mt-0.5 mr-2"></i> Drop JPG, PNG, GIF, WEBP, or AVIF files; GitHub Pages will host them automatically.</li>
-                            <li class="flex items-start"><i class="fas fa-arrows-rotate text-amber-500 mt-0.5 mr-2"></i> Reload or hit “Shuffle” to see a new random order.</li>
-                        </ul>
+                <div class="relative z-10 max-w-4xl">
+                    <p class="text-primary font-semibold mb-2">Welcome in</p>
+                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">Photo Portfolio</h1>
+                    <p class="text-slate-600 text-lg mb-3">Welcome to my photo portfolio - a small gallery of frames that made me stop and look twice. These are some of my favorite photos I've taken over the years, from long walks, quick trips, and quiet moments in between.</p>
+                    <p class="text-slate-600 text-base mb-6">Drop any new image into a <code class="font-mono bg-slate-100 px-2 py-1 rounded">/photos</code> folder in this repo; every visit auto-shuffles the wall so the story changes each time you open it.</p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="index.html" class="inline-flex items-center px-5 py-3 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-300">
+                            <i class="fas fa-arrow-left mr-2"></i> Back to main page
+                        </a>
+                        <button id="shuffleButton" class="inline-flex items-center px-5 py-3 rounded-lg border border-slate-200 text-slate-700 font-semibold bg-white hover:border-primary hover:text-primary transition shadow-sm">
+                            <i class="fas fa-random mr-2"></i> Shuffle now
+                        </button>
+                        <span class="text-sm text-slate-500">Loaded photos: <span id="photoCount" class="font-semibold text-slate-700">–</span></span>
                     </div>
                 </div>
             </div>
