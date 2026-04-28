@@ -141,9 +141,12 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center gap-6 justify-center md:justify-start">
-                        <a href="resume.pdf" target="_blank" class="inline-flex items-center px-8 py-3 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition shadow-lg shadow-slate-200">
-                            <i class="fas fa-file-arrow-down mr-2"></i> Download CV
-                        </a>
+                        <div class="flex flex-col items-center sm:items-start gap-1">
+                            <a href="resume.pdf" target="_blank" class="inline-flex items-center px-8 py-3 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 transition shadow-lg shadow-slate-200">
+                                <i class="fas fa-file-arrow-down mr-2"></i> Download CV
+                            </a>
+                            <span id="cv-updated" class="text-xs text-slate-400"></span>
+                        </div>
 
                         <div class="flex space-x-6">
                             <a href="https://github.com/Anfera" target="_blank" class="text-3xl text-slate-400 hover:text-slate-900 transition hover:-translate-y-1">
@@ -419,7 +422,7 @@
                          <div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-slate-400"></div>
                         <h4 class="text-lg font-bold text-slate-900">Ph.D. in Electrical & Computer Engineering</h4>
                         <p class="text-primary font-medium">University of Delaware</p>
-                        <p class="text-slate-500 text-sm mt-1">Expected Jul 2026 | GPA: 3.92</p>
+                        <p class="text-slate-500 text-sm mt-1">Expected Jul 2026 | GPA: 3.952</p>
                         <p class="text-slate-500 text-xs italic mt-1">2022 George W. Laird Fellow; 2024 ECE Signal Processing Award; 2024 Doctoral Fellowship for Excellence.</p>
                     </div>
 
@@ -470,6 +473,7 @@
 
     <footer class="py-8 bg-white border-t border-slate-200 text-center text-slate-500 text-sm">
         <p class="mb-4">Built by Andres Ramirez-Jaime &copy; 2025</p>
+        <p id="last-updated" class="mb-4 text-xs text-slate-400"></p>
         <div class="flex justify-center space-x-6">
             <a href="https://github.com/Anfera" class="text-slate-400 hover:text-slate-900 transition text-xl"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/andres-ramirez-jaime" class="text-slate-400 hover:text-blue-700 transition text-xl"><i class="fab fa-linkedin"></i></a>
@@ -508,6 +512,25 @@
             once: true,
             offset: 50
         });
+    </script>
+    <script>
+        fetch('https://api.github.com/repos/Anfera/Anfera.github.io/commits?per_page=1&ref=main')
+            .then(r => r.json())
+            .then(data => {
+                const date = new Date(data[0].commit.author.date);
+                const formatted = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('last-updated').textContent = 'Last updated: ' + formatted;
+            })
+            .catch(() => {});
+
+        fetch('https://api.github.com/repos/Anfera/Anfera.github.io/commits?per_page=1&path=resume.pdf&ref=main')
+            .then(r => r.json())
+            .then(data => {
+                const date = new Date(data[0].commit.author.date);
+                const formatted = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('cv-updated').textContent = 'Updated ' + formatted;
+            })
+            .catch(() => {});
     </script>
 </body>
 </html>

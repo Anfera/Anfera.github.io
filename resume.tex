@@ -1,0 +1,260 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+% Font options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% Section formatting
+\titleformat{\section}{\Large\bfseries\scshape\raggedright}{}{0em}{}[\titlerule]
+% Ensure PDF is machine readable
+\pdfgentounicode=1
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabular*}\vspace{-7pt}
+}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingList}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\begin{document}
+\begin{center}
+  \textbf{\Huge Andres Ramirez-Jaime} \\
+  \small
+  \href{tel:+16466459400}{+1 (646) 645-9400} $|$
+  \href{mailto:af.ramirez236@gmail.com}{af.ramirez236@gmail.com} $|$
+  \href{https://anfera.github.io/}{anfera.github.io} $|$
+  \href{https://github.com/Anfera}{github.com/Anfera} $|$
+  \href{https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl=en}{Google Scholar} $|$
+  \href{https://www.linkedin.com/in/andres-ramirez-jaime}{linkedin.com/in/andres-ramirez-jaime}
+\end{center}
+
+\section{Professional Summary}
+Ph.D. in Electrical and Computer Engineering (University of Delaware) developing multimodal, physics-informed generative AI for computational imaging and perception—with an emphasis on diffusion models and transformers for compressive satellite LiDAR using SAR and imaging spectroscopy side information, and extensions to hyperspectral/SAR remote sensing and gigapixel pathology. Co-authored \textbf{24 peer-reviewed publications} (9 first-author) and contributed to funded research with NASA and NSF partners, with a research trajectory focused on building reliable, high-impact AI systems that connect modern generative modeling with sensing and decision pipelines. Industry research experience includes Apple (LLM tool-use/agentic workflows: RAG, LoRA fine-tuning, large-scale evaluation and test-suite design) and Vertex Pharmaceuticals (semantic segmentation for whole-slide pathology), demonstrating the ability to translate AI advances into cross-domain impact. Extensive teaching experience as an instructor across programming, robotics, control, machine learning, and statistics, paired with mentoring and outreach.
+
+\section{Education}
+\resumeSubHeadingList
+  \resumeSubheading
+      {University of Delaware}{Newark, DE, USA}
+      {Ph.D. in Electrical and Computer Engineering}{Jun 2026}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ GPA: 3.952}
+          \resumeItem{\textbullet\ Dissertation: Computational Lidar From Space: Volumetric Representations, Generative Reconstruction, and Joint Source-Channel Coding.}
+      \resumeSubHeadingListEnd
+  \resumeSubheading
+      {University of Los Andes}{Bogota, Colombia}
+      {M.S. in Computer and Electronic Engineering}{Mar 2016}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Graduated \textit{Cum Laude}.}
+      \resumeSubHeadingListEnd
+  \resumeSubheading
+      {University of Los Andes}{Bogota, Colombia}
+      {B.S. in Electronic Engineering}{Oct 2013}
+\resumeSubHeadingListEnd
+
+\section{Research Experience}
+\resumeSubHeadingList
+  \resumeSubheading
+      {University of Delaware (NASA CASALS Project)}{Newark, DE, USA}
+      {Research and Teaching Assistant}{Feb 2022 -- Present}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Lead research on generative and multimodal ML for LiDAR and hyperspectral remote sensing (diffusion models, transformers, GANs) within the NASA CASALS project, contributing to advancements in AI and computer vision.}
+          \resumeItem{\textbullet\ Developed reconstruction and super-resolution methods for the HyperHeight Data Cube (HHDC) 2m dataset (\textbf{$\sim$100k} 3D tensors) using a novel forward imaging model; achieved \textbf{$<$1m MAE} on CHM/DTM and multiple height percentiles under compressive sampling (\textbf{$\sim$25\%} sampling), demonstrating strong physics-informed ML capabilities.}
+          \resumeItem{\textbullet\ Built scalable end-to-end pipelines (data processing $\rightarrow$ training $\rightarrow$ evaluation) on \textbf{$\sim$60 GB} datasets; ran \textbf{$\sim$5-day} training cycles on a single A100 and produced inference over \textbf{$\sim$600 m$^2$} areas in \textbf{$\sim$12 min}, showcasing efficient deep learning model deployment.}
+          \resumeItem{\textbullet\ Published and presented research: \textbf{24 peer-reviewed papers} (9 first-author); presented at international venues in remote sensing and computational imaging, highlighting strong communication skills.}
+          \resumeItem{\textbullet\ Mentored 2 Ph.D. students, 1 master's student, and visiting researchers; fostering collaboration skills.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {University of Delaware}{Newark, DE, USA}
+      {Visiting Scholar}{Jul 2021 -- Dec 2021}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Designed the HyperHeight Data Cube (HHDC) representation for efficient storage and processing of compressed 3D satellite LiDAR data, enabling downstream learning and reconstruction workflows.}
+          \resumeItem{\textbullet\ Implemented a 3D convolutional autoencoder for HHDC reconstruction, improving reconstruction quality vs. classical image-processing baselines by \textbf{+6 dB} on CHM and \textbf{+18 dB} on DTM.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {Robotics and Industrial Informatics Institute (UPC)}{Barcelona, Spain}
+      {Visiting Researcher}{Sep 2015 -- Mar 2016}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Investigated real-time control techniques based on game theory for urban drainage systems; applied methods to Barcelona's sewer network, achieving results comparable to model predictive control approaches.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {University of Los Andes}{Bogotá, Colombia}
+      {CIFI Researcher}{Feb 2015 -- Feb 2016}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Conducted research on urban drainage and climate change under the ``Urban Drainage and Climate Change: Towards the Sewerage Systems of the Future - PAVCO Phase II'' project; implemented real-time control techniques for flood mitigation in urban areas.}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+\section{Teaching Experience}
+\resumeSubHeadingList
+  \resumeSubheading
+      {University of Delaware}{Newark, DE, USA}
+      {Teaching Assistant}{Feb 2022 -- Present}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Taught undergraduate courses including Imaging and Deep Learning, and Probability/Statistics, and graduate courses including Analytics I: Statistical Learning.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {University of La Sabana}{Chia, Colombia}
+      {Mechanical Engineering Professor}{Jan 2018 -- Dec 2021}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Taught undergraduate courses including Introduction to Programming, Digital Logic, Robotics I, Electrotechnics, Dynamic Systems and Control, Electronic Instrumentation, Electric Machines, and Introduction to Machine Learning.}
+          \resumeItem{\textbullet\ Supervised 12 undergraduate thesis projects; taught courses in prototypes and manufacturing.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {National Learning Service (SENA)}{Soacha, Colombia}
+      {Robotics Facilitator}{Feb 2017 -- Dec 2017}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Taught robotics and electronic hardware to apprentices from vulnerable populations at the TecnoAcademy Cazucá node; co-led the Material, Manufacturing Process, and Automation Research Group (MAPRA), mentoring students on applied robotics projects.}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+\section{Industry Experience}
+\resumeSubHeadingList
+  \resumeSubheading
+      {Apple Inc.}{Cupertino, CA, USA}
+      {Large Language Models and Generative AI Engineering Intern}{Jun 2024 -- Aug 2024}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Built a retrieval-augmented generation (RAG) system grounded in the iPhone user manual to generate higher-quality internal tool descriptions; improved descriptions for \textbf{$\sim$85\%} of tools by strengthening retrieval and grounding.}
+          \resumeItem{\textbullet\ Fine-tuned Apple Intelligence LLMs for iPhone-focused tool usage via dataset curation and LoRA adapters on a distributed GPU cluster (up to \textbf{96 GPUs}); improved single-turn tool-selection accuracy from \textbf{61\%} to \textbf{90.2\%}.}
+          \resumeItem{\textbullet\ Created evaluation datasets and hand-crafted test suites (\textbf{$\sim$2,500} human-created conversations spanning \textbf{$\sim$80} tools) to stress-test edge cases; used results to diagnose failure modes and prioritize fixes.}
+          \resumeItem{\textbullet\ Optimized the training/evaluation pipeline to increase iteration rate from \textbf{1} to \textbf{$>$4} cycles/day, accelerating experimentation and readiness for deployment.}
+          \resumeItem{\textbullet\ Reduced tool hallucinations (nonexistent tools) from \textbf{$\sim$3\%} to \textbf{0\%} on internal testing by analyzing error patterns and recommending mitigation changes.}
+      \resumeSubHeadingListEnd
+
+  \resumeSubheading
+      {Vertex Pharmaceuticals}{San Diego, CA, USA}
+      {Computer Vision and Machine Learning Engineer}{Jun 2023 -- Aug 2023}
+      \resumeSubHeadingList
+          \resumeItem{\textbullet\ Partnered with biologists, physicians, and chemists on early drug discovery (IPF, ADPKD), translating scientific goals into ML deliverables and evaluation criteria, demonstrating strong collaboration skills and domain knowledge in healthcare.}
+          \resumeItem{\textbullet\ Built a U-Net semantic segmentation model for gigapixel pathology images achieving \textbf{$>$90\%} accuracy; replaced outsourced processing (100 slides; up to 3-month turnaround) with in-house inference (\textbf{$\sim$15 min} per processed slice/region), reducing vendor dependence and avoiding up to \textbf{\$600k/year} external spend.}
+          \resumeItem{\textbullet\ Developed an automated pipeline to segment kidney organoids in whole-slide images and estimate morphology (size, wall thickness) with \textbf{$<$3\%} error, improving measurement consistency for downstream analysis.}
+      \resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+\section{Invited Talks}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ ``High-Altitude Earth Observation with Diffusion Models for Satellite LiDAR Reconstruction.'' Electronic Imaging 2025, Burlingame, CA, USA, February 2--6, 2025.}
+\resumeSubHeadingListEnd
+
+\section{Awards and Honors}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ 2024 Doctoral Fellowship for Excellence, University of Delaware.}
+  \resumeItem{\textbullet\ 2024 ECE Signal Processing Award, University of Delaware.}
+  \resumeItem{\textbullet\ 2022 George W. Laird Fellow, University of Delaware.}
+  \resumeItem{\textbullet\ Graduated \textit{Cum Laude}, M.S., University of Los Andes, 2016.}
+\resumeSubHeadingListEnd
+
+\section{Open-Source Data \& Software}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ \textbf{HHDC Dataset (Hugging Face Hub)}: Created/maintained HyperHeight Data Cube dataset for LiDAR denoising/super-resolution; includes train/val/test splits and standardized 3D tensor format. \href{https://huggingface.co/datasets/anfera236/HHDC}{huggingface.co/datasets/anfera236/HHDC}}
+  \resumeItem{\textbullet\ \textbf{MatSWMM Toolbox}: Co-authored open-source toolbox for real-time urban drainage control simulations. \href{https://github.com/gandresr/MatSWMM}{github.com/gandresr/MatSWMM}}
+\resumeSubHeadingListEnd
+
+\section{Grants and Funding}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ Co-authored successful proposal for NSF EAGER IMPRESS-U Grant \#2404740: ``Exploratory Research on Generative Compression for Compressive Lidar'' (PI: Gonzalo R. Arce, University of Delaware; joint with ONRG and partners in Ukraine and Poland; \$300,000; 2024--2026).}
+  \resumeItem{\textbullet\ Co-authored successful proposal for UNIDEL210-UD AI CTR-ARCE PILOT: ``Computational Lidar Sensing for Earth Science'' (PI: Gonzalo R. Arce, Co-PI: R. Vargas, University of Delaware; \$15,000; 2/1/2023 -- 1/30/2024).}
+  \resumeItem{\textbullet\ Co-authored successful proposal for NASA Grant \#80NSSC22K1099: ``Sampling and Deep Learning Reconstruction of LiDAR Waveforms'' (PI: Gonzalo R. Arce, University of Delaware; \$40,000; 6/1/2022 -- 5/31/2023).}
+  \resumeItem{\textbullet\ Co-authored successful proposal for NASA EPSCoR RID Grant: ``Planetary LiDAR Compressive Point-Cloud Sampling and Machine Learning High-Resolution Reconstruction'' (PI: Gonzalo R. Arce, Co-PI: Amo Tong, University of Delaware; \$28,000; 8/1/2021 -- 6/30/2022).}
+\resumeSubHeadingListEnd
+
+\section{Professional Service}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ Reviewer, IEEE International Geoscience and Remote Sensing Symposium (IGARSS), 2024--2026.}
+  \resumeItem{\textbullet\ Peer Reviewer for The Journal of Supercomputing, IET Image Processing, and Journal of Spatial Science.}
+\resumeSubHeadingListEnd
+
+\section{Leadership and Outreach}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ Designed and programmed embedded control for the UNISABANA HERONS mechanical ventilator deployed in \textbf{400+} units during COVID-19; implemented respiratory control and data collection in C and LabVIEW, supporting regulatory approval by the Colombian FDA (University of La Sabana, 2018--2021).}
+  \resumeItem{\textbullet\ Led a robotics team for RoboCup 2019 (Sydney); reached the Community Shield final as runner-up, owning end-to-end technical execution (perception, control, systems integration) as team leader (University of La Sabana, 2018--2021).}
+  \resumeItem{\textbullet\ Active member, Hispanic/Latino Graduate Student Association (HLGSA), University of Delaware.}
+  \resumeItem{\textbullet\ Active member, Society for Advancement of Chicanos/Hispanics \& Native Americans in Science (SACNAS).}
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ \textbf{Programming}: Python, C, MATLAB, LabVIEW.}
+  \resumeItem{\textbullet\ \textbf{ML / Deep Learning}: PyTorch, TensorFlow, Keras; diffusion models, transformers, GANs; LLM fine-tuning (LoRA); retrieval-augmented generation (RAG); multimodal neural networks.}
+  \resumeItem{\textbullet\ \textbf{Computer Vision / Imaging}: semantic segmentation, super-resolution, denoising, reconstruction; computational imaging; medical and remote-sensing imagery.}
+  \resumeItem{\textbullet\ \textbf{Data / Systems}: large-scale training and evaluation (gigapixel images; 3D tensors; GPU training); dataset curation; experiment evaluation and test-suite design.}
+  \resumeItem{\textbullet\ \textbf{Tools}: Linux, Git, GIS, LaTeX.}
+  \resumeItem{\textbullet\ \textbf{Languages}: English (fluent), Spanish (native).}
+\resumeSubHeadingListEnd
+
+\section{Publications}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ Full list and citations available on \href{https://scholar.google.com/citations?user=ZCrWcHEAAAAJ&hl=en}{Google Scholar}.}
+
+  \textbf{Journal Articles}
+  \resumeItem{\textbullet\ Diffusion-Based Joint Recovery, Denoising, and Super-Resolution of Compressed-Sensing Satellite LiDAR Data. Ramirez-Jaime, A., Porras-Diaz, N., Stephen, M., Yang, G., Arce, G. R., Submitted to the IEEE Transactions on Computational Imaging, 2026.}
+  \resumeItem{\textbullet\ Objective and Subjective Quality Assessment of Forest Landscapes Reconstructed Using Generative Diffusion Models From Compressed Satellite LiDAR Data. Jeremeiev, O., Lukin, V., Ramirez-Jaime, A., Arce, G. R., Kopytek, M., Lech, P., Okarma, K. P., IEEE Access, 2025.}
+  \resumeItem{\textbullet\ Toward Submeter Satellite Surface Topography and Vegetation Mapping Using LiDAR/RGB Constrained Generative Diffusion. Porras-Diaz, N., Ramirez-Jaime, A., Arce, G. R., Stephen, M., IEEE Transactions on Geoscience and Remote Sensing, 2025.}
+  \resumeItem{\textbullet\ On the Lossless Compression of HyperHeight LiDAR Forested Landscape Data. Makarichev, V., Ramirez-Jaime, A., Porras-Diaz, N., Vasilyeva, I., Lukin, V., Arce, G., Okarma, K., Remote Sensing, 2025.}
+  \resumeItem{\textbullet\ Generative diffusion models for compressed sensing of satellite lidar data: Evaluating image quality metrics in forest landscape reconstruction. Ramirez-Jaime, A., Arce, G. R., Porras-Diaz, N., Jeremeiev, O., Rubel, A., Lukin, V., Kopytek, M., Lech, P., Fastowicz, J., Okarma, K., Remote Sensing, 2025.}
+  \resumeItem{\textbullet\ Super-Resolved 3D Satellite Lidar Imaging of Earth Via Generative Diffusion Models. Ramirez-Jaime, A., Porras-Diaz, N., Arce, G. R., Stephen, M., IEEE Transactions on Geoscience and Remote Sensing, 2025.}
+  \resumeItem{\textbullet\ Transformer end-to-end optimization of compressive LiDARs using imaging spectroscopy side information. Porras-Diaz, N., Ramirez-Jaime, A., Arce, G. R., Pena-Pena, K., Harding, D., Stephen, M., MacKinnon, J., Vargas, R., IEEE Transactions on Geoscience and Remote Sensing, 2024.}
+  \resumeItem{\textbullet\ The development and implementation of a low-cost mechanical ventilator in a low-middle-income country during the COVID-19 pandemic: The Unisabana-HERONS. Giraldo-Cadavid, L. F., Echeverry, J., Varón-Vega, F., Bastidas, A., Ramirez-Jaime, A., Cardona, A. F., Vega, C. J. L., Serrano-Mayorca, C. G., Garay, D., Rincón, D. N., and others, Heliyon, 2024.}
+  \resumeItem{\textbullet\ HyperHeight LiDAR Compressive Sampling and Machine Learning Reconstruction of Forested Landscapes. Ramirez-Jaime, A., Pena-Pena, K., Arce, G. R., Harding, D., Stephen, M., MacKinnon, J., IEEE Transactions on Geoscience and Remote Sensing, 2024.}
+  \resumeItem{\textbullet\ Compressive spectral imaging via misalignment induced equivalent grayscale coded aperture. Zhang, T., Zhao, S., Ma, X., Ramirez-Jaime, A., Zhao, Q., Arce, G. R., IEEE Geoscience and Remote Sensing Letters, 2023.}
+  \resumeItem{\textbullet\ Positive-pressure ventilation: Modeling, validation, and stochastic control of mean-field type. Ramirez-Jaime, A., Barreiro-Gomez, J., Longas, L., Echeverry-Mejia, J., Tembine, H., Automatica, 2022.}
+  \resumeItem{\textbullet\ MatSWMM—an open-source toolbox for designing real-time control of urban drainage systems. Riaño-Briceño, G., Barreiro-Gomez, J., Ramirez-Jaime, A., Quijano, N., Ocampo-Martinez, C., Environmental Modelling \& Software, 2016.}
+
+  \textbf{Book Chapters}
+  \resumeItem{\textbullet\ Computational Lidar from Space: Toward the Next Generation of Satellite Lidars. Ramirez-Jaime, A., Arce, G. R., Porras-Diaz, N., Stephen, M., Yang, G. In Handbook of Statistics, Vol. 54: Multidimensional Signal Processing (A. S. R. Srinivasa Rao, K. V. Mishra, and G. R. Arce, Eds.). Elsevier, 2026 (In Press).}
+
+  \textbf{Conference Proceedings}
+  \resumeItem{\textbullet\ Lossless Compression of Hyperheight LiDAR Forested Landscapes Data. Makarichev, V., Lukin, V., Vasilyeva, I., Okarma, K., Ramirez-Jaime, A., Arce, G. R., in Proc. 29th International Conference on Methods and Models in Automation and Robotics (MMAR), 2025.}
+  \resumeItem{\textbullet\ Denoising and Super-Resolution of Satellite Lidars Using Diffusion Generative Models. Ramirez-Jaime, A., Porras-Diaz, N., Arce, G. R., Stephen, M., in Proc. IEEE Statistical Signal Processing Workshop (SSP), 2025.}
+  \resumeItem{\textbullet\ Optimal illumination pattern for satellite compressive LiDAR using generative AI. Newman-Sanders, C., Ramirez-Jaime, A., Porras-Diaz, N., Arce, G. R., Stephen, M., in Proc. Machine Learning from Challenging Data 2025, 2025.}
+  \resumeItem{\textbullet\ SpectralCam: High-Resolution Low-Cost Spectral Imaging Using DSLR Cameras. Paruchuri, A., Ramirez-Jaime, A., Arce, G., Alrushud, A., Ma, X., Radpour, R., in Proc. IEEE ICASSP, 2025.}
+  \resumeItem{\textbullet\ Super-resolution of satellite lidars for forest studies via generative adversarial networks. Ramirez-Jaime, A., Porras-Diaz, N., Arce, G. R., Harding, D., Stephen, M., MacKinnon, J., in Proc. IEEE IGARSS, 2024.}
+  \resumeItem{\textbullet\ Multi-modal transformer for compressive LiDARs using hyperspectral imaging side-information. Porras-Diaz, N., Ramirez-Jaime, A., Arce, G. R., Vargas, R., Harding, D., Stephen, M., MacKinnon, J., in Proc. IEEE IGARSS, 2024.}
+  \resumeItem{\textbullet\ Super-resolution of satellite lidars for forest studies using diffusion generative models. Ramirez-Jaime, A., Arce, G. R., Stephen, M., MacKinnon, J., in Proc. IEEE Conference on Computational Imaging Using Synthetic Apertures (CISA), 2024.}
+  \resumeItem{\textbullet\ High altitude computational lidar emulation and machine learning reconstruction for Earth sciences. Arce, G. R., Ramirez-Jaime, A., Porras-Diaz, N., in Proc. Big Data VI: Learning, Analytics, and Applications, 2024.}
+  \resumeItem{\textbullet\ Nonlinear model predictive control with constraint satisfactions for a quadcopter. Wang, Y., Ramirez-Jaime, A., Xu, F., Puig, V., in Proc. Journal of Physics: Conference Series, 2017.}
+  \resumeItem{\textbullet\ A differential game approach to urban drainage systems control. Ramirez-Jaime, A., Quijano, N., Ocampo-Martinez, C., in Proc. American Control Conference (ACC), 2016.}
+  \resumeItem{\textbullet\ Co-simulation for the design of controllers in urban drainage systems. Riaño-Briceño, G., Ramirez-Jaime, A., Barreiro-Gomez, J., Quijano, N., Ocampo-Martinez, C., in Proc. IEEE 2nd Colombian Conference on Automatic Control (CCAC), 2015.}
+\resumeSubHeadingListEnd
+
+\section{References}
+\resumeSubHeadingList
+  \resumeItem{\textbullet\ Gonzalo R. Arce — Charles Black Evans Professor, Department of Electrical \& Computer Engineering, University of Delaware. arce@udel.edu}
+  \resumeItem{\textbullet\ Javier Garcia-Frias — Professor and Associate Chair (Graduate Studies), Department of Electrical \& Computer Engineering, University of Delaware. jgf@udel.edu}
+  \resumeItem{\textbullet\ Volodymyr (Vladimir) Lukin — Head, Department of Information-Communication Technologies, National Aerospace University ``Kharkiv Aviation Institute'' (KhAI). v.lukin@khai.edu}
+  \resumeItem{\textbullet\ Krzysztof Okarma — Professor, Department of Signal Processing and Multimedia Engineering, West Pomeranian University of Technology in Szczecin (ZUT). okarma@zut.edu.pl}
+  \resumeItem{\textbullet\ Mark Stephen — Engineer, NASA Goddard Space Flight Center. mark.a.stephen@nasa.gov}
+  \resumeItem{\textbullet\ Guangning Yang — Engineer, NASA Goddard Space Flight Center. Guangning.Yang-1@nasa.gov}
+\resumeSubHeadingListEnd
+
+\end{document}
