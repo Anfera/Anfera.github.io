@@ -55,7 +55,7 @@
 \end{center}
 
 \section{Professional Summary}
-AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Machine Learning), building GPU software for cryo-electron tomography (cryoET): self-supervised tomogram reconstruction, CTF- and dose-aware template matching, physics-based simulation, and laser phase plate data processing. Ph.D. in Electrical and Computer Engineering (University of Delaware) focused on multimodal, physics-informed generative AI for computational imaging and perception---with an emphasis on diffusion models and transformers for compressive satellite LiDAR using SAR and imaging spectroscopy side information, and extensions to hyperspectral/SAR remote sensing and gigapixel pathology. Co-authored several peer-reviewed publications and contributed to funded research with NASA and NSF partners, with a research trajectory focused on building reliable, high-impact AI systems that connect modern generative modeling with sensing and decision pipelines. Industry research experience includes Apple (LLM tool-use/agentic workflows: RAG, LoRA fine-tuning, large-scale evaluation and test-suite design) and Vertex Pharmaceuticals (semantic segmentation for whole-slide pathology), demonstrating the ability to translate AI advances into cross-domain impact. Extensive teaching experience as an instructor across programming, robotics, control, machine learning, and statistics, paired with mentoring and outreach.
+AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Machine Learning), working on machine learning and computational methods for cryo-electron tomography (cryoET), including template matching, tomogram reconstruction, and simulation. Ph.D. in Electrical and Computer Engineering (University of Delaware) focused on multimodal, physics-informed generative AI for computational imaging and perception---with an emphasis on diffusion models and transformers for compressive satellite LiDAR using SAR and imaging spectroscopy side information, and extensions to hyperspectral/SAR remote sensing and gigapixel pathology. Co-authored several peer-reviewed publications and contributed to funded research with NASA and NSF partners, with a research trajectory focused on building reliable, high-impact AI systems that connect modern generative modeling with sensing and decision pipelines. Industry research experience includes Apple (LLM tool-use/agentic workflows: RAG, LoRA fine-tuning, large-scale evaluation and test-suite design) and Vertex Pharmaceuticals (semantic segmentation for whole-slide pathology), demonstrating the ability to translate AI advances into cross-domain impact. Extensive teaching experience as an instructor across programming, robotics, control, machine learning, and statistics, paired with mentoring and outreach.
 
 \section{Education}
 \resumeSubHeadingList
@@ -83,10 +83,9 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
       {Chan Zuckerberg Biohub}{Redwood City, CA, USA}
       {AI/ML Research Scientist, Inverse Problems \& Machine Learning}{Jul 2026 -- Present}
       \resumeSubHeadingList
-          \resumeItem{\textbullet\ Lead developer of \textbf{ApexMatch}, a GPU template-matching toolkit for cryoET that re-scores and re-localizes candidates against the raw tilt series with a CTF- and dose-aware matched filter, adding per-tomogram QC, decoy-based false-discovery control, and copick/ChimeraX export.}
-          \resumeItem{\textbullet\ Contribute to \textbf{ApexTrace}, a PyTorch/CUDA tomogram reconstruction pipeline (motion correction, CTF, alignment, reconstruction) with self-supervised denoising and missing-wedge correction, learned local deformations, and RELION-5 subtomogram-averaging export.}
-          \resumeItem{\textbullet\ Built \textbf{cryoet-sim}, a physics-based cryoET simulator (depth-dependent CTF, time-resolved sample deformation, tilt-dependent ice noise) that writes full ground truth for benchmarking reconstruction, alignment, and particle picking.}
-          \resumeItem{\textbullet\ Develop processing for crossed laser phase plate (xLPP) cryoET data, covering phase-plate-aware CTF fitting and correction, reconstruction, template matching, and subtomogram averaging on in situ datasets (mitochondria, nuclei, cilia).}
+          \resumeItem{\textbullet\ Developing GPU-accelerated template matching methods for locating macromolecular complexes in cryoET tomograms.}
+          \resumeItem{\textbullet\ Contributing to tomogram reconstruction tools that combine tilt-series alignment with self-supervised denoising.}
+          \resumeItem{\textbullet\ Building cryoET simulations with ground truth to benchmark reconstruction and particle picking, and working on processing for laser phase plate data.}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
@@ -218,7 +217,7 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
   \resumeItem{\textbullet\ \textbf{ML / Deep Learning}: PyTorch, TensorFlow, Keras; diffusion models, transformers, GANs; LLM fine-tuning (LoRA); retrieval-augmented generation (RAG); multimodal neural networks.}
   \resumeItem{\textbullet\ \textbf{Computer Vision / Imaging}: semantic segmentation, super-resolution, denoising, reconstruction; computational imaging; medical and remote-sensing imagery.}
   \resumeItem{\textbullet\ \textbf{Data / Systems}: large-scale training and evaluation (gigapixel images; 3D tensors; GPU training); dataset curation; experiment evaluation and test-suite design.}
-  \resumeItem{\textbullet\ \textbf{CryoEM / CryoET}: tomogram reconstruction, CTF estimation, template matching, subtomogram averaging; AreTomo3, RELION-5, Warp, copick, ChimeraX; PyTorch CUDA extensions.}
+  \resumeItem{\textbullet\ \textbf{CryoEM / CryoET}: tomogram reconstruction, CTF estimation, template matching, subtomogram averaging.}
   \resumeItem{\textbullet\ \textbf{Tools}: Linux, Git, Slurm/HPC, GIS, LaTeX.}
   \resumeItem{\textbullet\ \textbf{Languages}: English (fluent), Spanish (native).}
 \resumeSubHeadingListEnd
