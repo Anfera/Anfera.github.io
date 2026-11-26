@@ -55,7 +55,7 @@
 \end{center}
 
 \section{Professional Summary}
-AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Machine Learning), developing machine learning and generative methods for inverse problems in cryo-electron microscopy and tomography (cryoEM/cryoET). Ph.D. in Electrical and Computer Engineering (University of Delaware) focused on multimodal, physics-informed generative AI for computational imaging and perception—with an emphasis on diffusion models and transformers for compressive satellite LiDAR using SAR and imaging spectroscopy side information, and extensions to hyperspectral/SAR remote sensing and gigapixel pathology. Co-authored several peer-reviewed publications and contributed to funded research with NASA and NSF partners, with a research trajectory focused on building reliable, high-impact AI systems that connect modern generative modeling with sensing and decision pipelines. Industry research experience includes Apple (LLM tool-use/agentic workflows: RAG, LoRA fine-tuning, large-scale evaluation and test-suite design) and Vertex Pharmaceuticals (semantic segmentation for whole-slide pathology), demonstrating the ability to translate AI advances into cross-domain impact. Extensive teaching experience as an instructor across programming, robotics, control, machine learning, and statistics, paired with mentoring and outreach.
+AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Machine Learning), building GPU software for cryo-electron tomography (cryoET): self-supervised tomogram reconstruction, CTF- and dose-aware template matching, physics-based simulation, and laser phase plate data processing. Ph.D. in Electrical and Computer Engineering (University of Delaware) focused on multimodal, physics-informed generative AI for computational imaging and perception---with an emphasis on diffusion models and transformers for compressive satellite LiDAR using SAR and imaging spectroscopy side information, and extensions to hyperspectral/SAR remote sensing and gigapixel pathology. Co-authored several peer-reviewed publications and contributed to funded research with NASA and NSF partners, with a research trajectory focused on building reliable, high-impact AI systems that connect modern generative modeling with sensing and decision pipelines. Industry research experience includes Apple (LLM tool-use/agentic workflows: RAG, LoRA fine-tuning, large-scale evaluation and test-suite design) and Vertex Pharmaceuticals (semantic segmentation for whole-slide pathology), demonstrating the ability to translate AI advances into cross-domain impact. Extensive teaching experience as an instructor across programming, robotics, control, machine learning, and statistics, paired with mentoring and outreach.
 
 \section{Education}
 \resumeSubHeadingList
@@ -83,7 +83,10 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
       {Chan Zuckerberg Biohub}{Redwood City, CA, USA}
       {AI/ML Research Scientist, Inverse Problems \& Machine Learning}{Jul 2026 -- Present}
       \resumeSubHeadingList
-          \resumeItem{\textbullet\ Research on machine learning and generative methods for inverse problems in cryo-electron microscopy and tomography (cryoEM/cryoET).}
+          \resumeItem{\textbullet\ Lead developer of \textbf{ApexMatch}, a GPU template-matching toolkit for cryoET that re-scores and re-localizes candidates against the raw tilt series with a CTF- and dose-aware matched filter, adding per-tomogram QC, decoy-based false-discovery control, and copick/ChimeraX export.}
+          \resumeItem{\textbullet\ Contribute to \textbf{ApexTrace}, a PyTorch/CUDA tomogram reconstruction pipeline (motion correction, CTF, alignment, reconstruction) with self-supervised denoising and missing-wedge correction, learned local deformations, and RELION-5 subtomogram-averaging export.}
+          \resumeItem{\textbullet\ Built \textbf{cryoet-sim}, a physics-based cryoET simulator (depth-dependent CTF, time-resolved sample deformation, tilt-dependent ice noise) that writes full ground truth for benchmarking reconstruction, alignment, and particle picking.}
+          \resumeItem{\textbullet\ Develop processing for crossed laser phase plate (xLPP) cryoET data, covering phase-plate-aware CTF fitting and correction, reconstruction, template matching, and subtomogram averaging on in situ datasets (mitochondria, nuclei, cilia).}
       \resumeSubHeadingListEnd
 
   \resumeSubheading
@@ -113,7 +116,7 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
       \resumeSubHeadingListEnd
 
   \resumeSubheading
-      {University of Los Andes}{Bogotá, Colombia}
+      {University of Los Andes}{Bogot{\'a}, Colombia}
       {CIFI Researcher}{Feb 2015 -- Feb 2016}
       \resumeSubHeadingList
           \resumeItem{\textbullet\ Conducted research on urban drainage and climate change under the ``Urban Drainage and Climate Change: Towards the Sewerage Systems of the Future - PAVCO Phase II'' project; implemented real-time control techniques for flood mitigation in urban areas.}
@@ -141,7 +144,7 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
       {National Learning Service (SENA)}{Soacha, Colombia}
       {Robotics Facilitator}{Feb 2017 -- Dec 2017}
       \resumeSubHeadingList
-          \resumeItem{\textbullet\ Taught robotics and electronic hardware to apprentices from vulnerable populations at the TecnoAcademy Cazucá node; co-led the Material, Manufacturing Process, and Automation Research Group (MAPRA), mentoring students on applied robotics projects.}
+          \resumeItem{\textbullet\ Taught robotics and electronic hardware to apprentices from vulnerable populations at the TecnoAcademy Cazuc{\'a} node; co-led the Material, Manufacturing Process, and Automation Research Group (MAPRA), mentoring students on applied robotics projects.}
       \resumeSubHeadingListEnd
 \resumeSubHeadingListEnd
 
@@ -215,7 +218,8 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
   \resumeItem{\textbullet\ \textbf{ML / Deep Learning}: PyTorch, TensorFlow, Keras; diffusion models, transformers, GANs; LLM fine-tuning (LoRA); retrieval-augmented generation (RAG); multimodal neural networks.}
   \resumeItem{\textbullet\ \textbf{Computer Vision / Imaging}: semantic segmentation, super-resolution, denoising, reconstruction; computational imaging; medical and remote-sensing imagery.}
   \resumeItem{\textbullet\ \textbf{Data / Systems}: large-scale training and evaluation (gigapixel images; 3D tensors; GPU training); dataset curation; experiment evaluation and test-suite design.}
-  \resumeItem{\textbullet\ \textbf{Tools}: Linux, Git, GIS, LaTeX.}
+  \resumeItem{\textbullet\ \textbf{CryoEM / CryoET}: tomogram reconstruction, CTF estimation, template matching, subtomogram averaging; AreTomo3, RELION-5, Warp, copick, ChimeraX; PyTorch CUDA extensions.}
+  \resumeItem{\textbullet\ \textbf{Tools}: Linux, Git, Slurm/HPC, GIS, LaTeX.}
   \resumeItem{\textbullet\ \textbf{Languages}: English (fluent), Spanish (native).}
 \resumeSubHeadingListEnd
 
@@ -231,11 +235,11 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
   \resumeItem{\textbullet\ Generative diffusion models for compressed sensing of satellite lidar data: Evaluating image quality metrics in forest landscape reconstruction. Ramirez-Jaime, A., Arce, G. R., Porras-Diaz, N., Ieremeiev, O., Rubel, A., Lukin, V., Kopytek, M., Lech, P., Fastowicz, J., Okarma, K., Remote Sensing, 2025.}
   \resumeItem{\textbullet\ Super-Resolved 3D Satellite Lidar Imaging of Earth Via Generative Diffusion Models. Ramirez-Jaime, A., Porras-Diaz, N., Arce, G. R., Stephen, M., IEEE Transactions on Geoscience and Remote Sensing, 2025.}
   \resumeItem{\textbullet\ Transformer end-to-end optimization of compressive LiDARs using imaging spectroscopy side information. Porras-Diaz, N., Ramirez-Jaime, A., Arce, G. R., Pena-Pena, K., Harding, D., Stephen, M., MacKinnon, J., Vargas, R., IEEE Transactions on Geoscience and Remote Sensing, 2024.}
-  \resumeItem{\textbullet\ The development and implementation of a low-cost mechanical ventilator in a low-middle-income country during the COVID-19 pandemic: The Unisabana-HERONS. Giraldo-Cadavid, L. F., Echeverry, J., Varón-Vega, F., Bastidas, A., Ramirez-Jaime, A., Cardona, A. F., Vega, C. J. L., Serrano-Mayorca, C. G., Garay, D., Rincón, D. N., and others, Heliyon, 2024.}
+  \resumeItem{\textbullet\ The development and implementation of a low-cost mechanical ventilator in a low-middle-income country during the COVID-19 pandemic: The Unisabana-HERONS. Giraldo-Cadavid, L. F., Echeverry, J., Var{\'o}n-Vega, F., Bastidas, A., Ramirez-Jaime, A., Cardona, A. F., Vega, C. J. L., Serrano-Mayorca, C. G., Garay, D., Rinc{\'o}n, D. N., and others, Heliyon, 2024.}
   \resumeItem{\textbullet\ HyperHeight LiDAR Compressive Sampling and Machine Learning Reconstruction of Forested Landscapes. Ramirez-Jaime, A., Pena-Pena, K., Arce, G. R., Harding, D., Stephen, M., MacKinnon, J., IEEE Transactions on Geoscience and Remote Sensing, 2024.}
   \resumeItem{\textbullet\ Compressive spectral imaging via misalignment induced equivalent grayscale coded aperture. Zhang, T., Zhao, S., Ma, X., Ramirez-Jaime, A., Zhao, Q., Arce, G. R., IEEE Geoscience and Remote Sensing Letters, 2023.}
   \resumeItem{\textbullet\ Positive-pressure ventilation: Modeling, validation, and stochastic control of mean-field type. Ramirez-Jaime, A., Barreiro-Gomez, J., Longas, L., Echeverry-Mejia, J., Tembine, H., Automatica, 2022.}
-  \resumeItem{\textbullet\ MatSWMM—an open-source toolbox for designing real-time control of urban drainage systems. Riaño-Briceño, G., Barreiro-Gomez, J., Ramirez-Jaime, A., Quijano, N., Ocampo-Martinez, C., Environmental Modelling \& Software, 2016.}
+  \resumeItem{\textbullet\ MatSWMM---an open-source toolbox for designing real-time control of urban drainage systems. Ria{\~n}o-Brice{\~n}o, G., Barreiro-Gomez, J., Ramirez-Jaime, A., Quijano, N., Ocampo-Martinez, C., Environmental Modelling \& Software, 2016.}
 
   \textbf{Book Chapters}
   \resumeItem{\textbullet\ Computational Lidar from Space: Toward the Next Generation of Satellite Lidars. Ramirez-Jaime, A., Arce, G. R., Porras-Diaz, N., Stephen, M., Yang, G. In Handbook of Statistics, Vol. 54: Multidimensional Signal Processing (A. S. R. Srinivasa Rao, K. V. Mishra, and G. R. Arce, Eds.). Elsevier, 2026 (In Press).}
@@ -251,17 +255,17 @@ AI/ML Research Scientist at the Chan Zuckerberg Biohub (Inverse Problems \& Mach
   \resumeItem{\textbullet\ High altitude computational lidar emulation and machine learning reconstruction for Earth sciences. Arce, G. R., Ramirez-Jaime, A., Porras-Diaz, N., in Proc. Big Data VI: Learning, Analytics, and Applications, 2024.}
   \resumeItem{\textbullet\ Nonlinear model predictive control with constraint satisfactions for a quadcopter. Wang, Y., Ramirez-Jaime, A., Xu, F., Puig, V., in Proc. Journal of Physics: Conference Series, 2017.}
   \resumeItem{\textbullet\ A differential game approach to urban drainage systems control. Ramirez-Jaime, A., Quijano, N., Ocampo-Martinez, C., in Proc. American Control Conference (ACC), 2016.}
-  \resumeItem{\textbullet\ Co-simulation for the design of controllers in urban drainage systems. Riaño-Briceño, G., Ramirez-Jaime, A., Barreiro-Gomez, J., Quijano, N., Ocampo-Martinez, C., in Proc. IEEE 2nd Colombian Conference on Automatic Control (CCAC), 2015.}
+  \resumeItem{\textbullet\ Co-simulation for the design of controllers in urban drainage systems. Ria{\~n}o-Brice{\~n}o, G., Ramirez-Jaime, A., Barreiro-Gomez, J., Quijano, N., Ocampo-Martinez, C., in Proc. IEEE 2nd Colombian Conference on Automatic Control (CCAC), 2015.}
 \resumeSubHeadingListEnd
 
 \section{References}
 \resumeSubHeadingList
-  \resumeItem{\textbullet\ Gonzalo R. Arce — Charles Black Evans Professor, Department of Electrical \& Computer Engineering, University of Delaware. arce@udel.edu}
-  \resumeItem{\textbullet\ Javier Garcia-Frias — Professor and Associate Chair (Graduate Studies), Department of Electrical \& Computer Engineering, University of Delaware. jgf@udel.edu}
-  \resumeItem{\textbullet\ Volodymyr (Vladimir) Lukin — Head, Department of Information-Communication Technologies, National Aerospace University ``Kharkiv Aviation Institute'' (KhAI). v.lukin@khai.edu}
-  \resumeItem{\textbullet\ Krzysztof Okarma — Professor, Department of Signal Processing and Multimedia Engineering, West Pomeranian University of Technology in Szczecin (ZUT). okarma@zut.edu.pl}
-  \resumeItem{\textbullet\ Mark Stephen — Engineer, NASA Goddard Space Flight Center. mark.a.stephen@nasa.gov}
-  \resumeItem{\textbullet\ Guangning Yang — Engineer, NASA Goddard Space Flight Center. Guangning.Yang-1@nasa.gov}
+  \resumeItem{\textbullet\ Gonzalo R. Arce --- Charles Black Evans Professor, Department of Electrical \& Computer Engineering, University of Delaware. arce@udel.edu}
+  \resumeItem{\textbullet\ Javier Garcia-Frias --- Professor and Associate Chair (Graduate Studies), Department of Electrical \& Computer Engineering, University of Delaware. jgf@udel.edu}
+  \resumeItem{\textbullet\ Volodymyr (Vladimir) Lukin --- Head, Department of Information-Communication Technologies, National Aerospace University ``Kharkiv Aviation Institute'' (KhAI). v.lukin@khai.edu}
+  \resumeItem{\textbullet\ Krzysztof Okarma --- Professor, Department of Signal Processing and Multimedia Engineering, West Pomeranian University of Technology in Szczecin (ZUT). okarma@zut.edu.pl}
+  \resumeItem{\textbullet\ Mark Stephen --- Engineer, NASA Goddard Space Flight Center. mark.a.stephen@nasa.gov}
+  \resumeItem{\textbullet\ Guangning Yang --- Engineer, NASA Goddard Space Flight Center. Guangning.Yang-1@nasa.gov}
 \resumeSubHeadingListEnd
 
 \end{document}
